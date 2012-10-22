@@ -26,7 +26,7 @@ $(document).ready(function() {
 	});
 
 	$(".deletebutton").click(function() {
-		console.log($(this).parent());
+		$(this).parent().remove();
 	});
 
 });
