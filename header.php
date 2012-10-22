@@ -7,7 +7,6 @@
 			<li>About</li>
 		</ul>
 		<ul id="m2" class="menu">
-			<li>Manage accout</li>
 			<li>Preferences</li>
 			<li><a href="user.php">Profile</a></li>
 		</ul>
