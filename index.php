@@ -12,10 +12,10 @@
 		Some further goals for this website include:
 	</p>
 	<ul>
-		-Implementing user profiles
-		-Allowing users to record their own performances
-		-Upload sheet music
-		-Show recommended music / Currently popular / Trending
+		<li>Implementing user profiles</li>
+		<li>Allowing users to record their own performances</li>
+		<li>Upload sheet music</li>
+		<li>Show recommended music / Currently popular / Trending</li>
 	</ul>
 
 	<p>
@@ -24,10 +24,10 @@
 	<p>
 		Musical Terms 
 		<ul>
-			-BPM: Beats per Minute.
-			-Composer: Creator of a given piece of music.
-			-Genre: Category of music (Classical, techno, xXxDubStepxXx)
-			-Tempo: Speed of a given piece. Larger BPM means faster songs.
+			<li>BPM: Beats per Minute.</li>
+			<li>Composer: Creator of a given piece of music.</li>
+			<li>Genre: Category of music (Classical, techno, xXxDubStepxXx)</li>
+			<li>Tempo: Speed of a given piece. Larger BPM means faster songs.</li>
 		</ul>
 	</p>
 	
