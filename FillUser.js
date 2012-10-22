@@ -4,7 +4,7 @@ $(document).ready(function() {
 	$("#user").text("Hello, " + curUser.name);
 	$("#userName").text("User Name: " + curUser.userName);
 	$("#about").text("About me: " + curUser.about);
-	$("#created").text("Account created: " + curUser.created);
+	$("#created").text("Account created: " + curUser.dateCreated);
 	$("#age").text("Age: " + curUser.age);
 	$("#location").text("Location: " + curUser.location);
 
