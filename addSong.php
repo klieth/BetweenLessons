@@ -1,5 +1,4 @@
-<?php include 'header.php' ?>
-	<div id="content">
+	<div id="addSong">
 		<h2 id="contentTitle">Add Song</h2>
 			<label>Song Title: <input type="text" name="title"></label><br>
 			<label>Composer: <input type="text" name="composer"></label><br>
@@ -10,4 +9,3 @@
 			<button type="submit">Add Song</button>
 		</div>
 
-<?php include "footer.php" ?>
