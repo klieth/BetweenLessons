@@ -25,7 +25,7 @@
 							<td>Options</td>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="SongInfo">
 					</tbody>
 				</table>
 			</div>
