@@ -30,10 +30,10 @@ $(document).ready(function() {
 		// select the tbody, for each of the rows
 		evenodd = false;
 		$("#SongInfo > tr").each(function(idx,elem) {
-			elem.removeClass("odd even");
+			$(elem).removeClass("odd even");
 			var str = evenodd ? "even" : "odd";
 			evenodd = !evenodd;
-			elem.addClass(str);
+			$(elem).addClass(str);
 		});
 	});
 
