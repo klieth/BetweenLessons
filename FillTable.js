@@ -16,25 +16,34 @@ $(document).ready(function() {
 		newrow.append("<td>" + song.comments + "</td>");
 		newrow.append("<td class=\"button deletebutton\">delete</td>");
 		$("#SongInfo").append(newrow);
-		
-		//$("#SongInfo").append("<tr><td>" + song.title + "</td>");
-		//$("#SongInfo").append("<td>" + song.composer + "</td>");
-		//$("#SongInfo").append("<td>" + song.tempo + " BPM" + "</td>");
-		//$("#SongInfo").append("<td>" + song.genre + "</td>");
-		//$("#SongInfo").append("<td>" + song.startDate + "</td>");
-		//$("#SongInfo").append("<td>" + song.comments + "</td></tr>");
 	});
 
 	$(".deletebutton").click(function() {
 		$(this).parent().remove();
-		// select the tbody, for each of the rows
-		evenodd = false;
-		$("#SongInfo > tr").each(function(idx,elem) {
-			$(elem).removeClass("odd even");
-			var str = evenodd ? "even" : "odd";
-			evenodd = !evenodd;
-			$(elem).addClass(str);
-		});
+		resetColors();
+	});
+
+	$("#addSong").submit(function() {
+		var newrow = $("<tr></tr>");
+		newrow.append("<td>" + $("title").val() + "</td>");
+		newrow.append("<td>" + $("composer").val() + "</td>");
+		newrow.append("<td>" + $("tempo").val() + " BPM</td>");
+		newrow.append("<td>" + $("genre").val() + "</td>");
+		newrow.append("<td>" + $("date").val() + "</td>");
+		newrow.append("<td>" + $("comments").val() + "</td>");
+		newrow.append("<td class=\"button deletebutton\">delete</td>");
+		$("#SongInfo").append(newrow);
+		resetColors();
 	});
 
 });
+
+function resetColors() {
+	var evenodd = false;
+	$("#SongInfo > tr").each(function(idx,elem) {
+		$(elem).removeClass("odd even");
+		var str = evenodd ? "even" : "odd";
+		evenodd = !evenodd;
+		$(elem).addClass(str);
+	});
+}
