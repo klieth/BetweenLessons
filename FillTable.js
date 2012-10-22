@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var evenodd = false;
 	jQuery.each(Song.all, function(index, song) {
 		var newrow = $("<tr></tr>");
-		str = evenodd ? "even" : "odd";
+		var str = evenodd ? "even" : "odd";
 		evenodd = !evenodd;
 		newrow.addClass(str);
 		newrow.append("<td>" + song.title + "</td>");
@@ -27,6 +27,14 @@ $(document).ready(function() {
 
 	$(".deletebutton").click(function() {
 		$(this).parent().remove();
+		// select the tbody, for each of the rows
+		evenodd = false;
+		$("#SongInfo > tr").each(function(idx,elem) {
+			elem.removeClass("odd even");
+			var str = evenodd ? "even" : "odd";
+			evenodd = !evenodd;
+			elem.addClass(str);
+		});
 	});
 
 });
