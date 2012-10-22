@@ -2,7 +2,7 @@
  * Populates tables as necessary.
  */
 $(document).ready(function() {
-	jQuery.each(Song.all, function(index, song)){
+	jQuery.each(Song.all, function(index, song) {
 		var newrow = $("<tr></tr>");
 		newrow.append("<td>" + song.title + "</td>");
 		newrow.append("<td>" + song.composer + "</td>");
