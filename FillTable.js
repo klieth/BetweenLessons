@@ -4,7 +4,7 @@
 $(document).ready(function() {
 	var evenodd = false;
 	jQuery.each(Song.all, function(index, song) {
-		var newrow = $("<tr class=\"" + evenodd ? "even" : "odd"  + "\"></tr>");
+		var newrow = $("<tr class=\"" + (evenodd ? "even" : "odd")  + "\"></tr>");
 		newrow.append("<td>" + song.title + "</td>");
 		newrow.append("<td>" + song.composer + "</td>");
 		newrow.append("<td>" + song.tempo + " BPM</td>");
