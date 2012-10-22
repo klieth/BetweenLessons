@@ -1,4 +1,4 @@
-	<form id="addSong">
+	<form id="addSong" action="javascript:void(0)">
 		<h2 id="contentTitle">Add Song</h2>
 			<label>Song Title: <input id="songtitle" type="text" name="title"></label><br>
 			<label>Composer: <input id="composer" type="text" name="composer"></label><br>
