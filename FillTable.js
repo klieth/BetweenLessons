@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 	$("#addSong").submit(function() {
 		var newrow = $("<tr></tr>");
-		newrow.append("<td>" + $("title").val() + "</td>");
+		newrow.append("<td>" + $("songtitle").val() + "</td>");
 		newrow.append("<td>" + $("composer").val() + "</td>");
 		newrow.append("<td>" + $("tempo").val() + " BPM</td>");
 		newrow.append("<td>" + $("genre").val() + "</td>");
