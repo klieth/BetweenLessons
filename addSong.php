@@ -6,6 +6,6 @@
 			<label>Genre: <input id="genre" type="text" name="genre"></label><br>
 			<label>Start date (yyyy-mm-dd): <input id="date" type="text" name="date"></label><br>
 			<label>Comments: <input id="comments" type="text" name="comments"></label><br>
-			<input type="submit">Add Song</button>
+			<input type="submit" value="Add Song">
 		</form>
 
