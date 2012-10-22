@@ -27,37 +27,3 @@ Song.all['Rooftop Run'] = new Song('Rooftop Run', 'SEGA', 650, 'Video Game', '20
 Song.all['Four Seasons'] = new Song('Four Seasons: Winter', 'Vivaldi', 777, 'Classical', '2012-12-12', 'Advanced');
 Song.all['Funeral March'] = new Song('Funeral March', 'Chopin', 666, 'Classical', '2012-10-10', 'Novice');
 Song.all['Mario Theme'] = new Song('Mario Theme', 'Nintendo', 400, 'Video Game', '2012-8-8', 'Intermediate');
-
-Song.prototype.setComment = function(comments){
-	this.comments = comments;
-}
-
-
-Song.prototype.getTitle = function(){
-	return this.title;
-}
-
-
-Song.prototype.getComposer = function(){
-	return this.composer;
-}
-
-
-Song.prototype.getTempo = function(){
-	return this.tempo;
-}
-
-
-Song.prototype.getGenre = function(){
-	return this.genre;
-}
-
-
-Song.prototype.getStartDate = function(){
-	return this.startDate;
-}
-
-
-Song.prototype.getComments = function(){
-	return this.comments;
-}
