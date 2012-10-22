@@ -2,8 +2,13 @@
 	<head>
 		<title>Between Lessons</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javasctipt" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script type="text/javascript" src="Song.js"></script>
-		<script type="text/javascript" src=""></script>
+
+<script type="text/javascript">
+// add jQuery here to fill in tbody
+</script>
+
 	</head>
 	<body>
 		<div id="container">
@@ -23,24 +28,6 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="even">
-							<td>Piece #1</td>
-							<td>Composer #1</td>
-							<td>500bpm</td>
-							<td>Death metal</td>
-							<td>9/14/2012</td>
-							<td>Quite difficult</td>
-							<td><a href="">delete</a>, <a href="">edit</a>, <a href="">mastered</a></td>
-						</tr>
-						<tr class="odd">
-							<td>Piece #2</td>
-							<td>Composer #2</td>
-							<td>800bpm</td>
-							<td>Death metal</td>
-							<td>9/15/2012</td>
-							<td>Even crazier</td>
-							<td><a href="">delete</a>, <a href="">edit</a>, <a href="">mastered</a></td>
-						</tr>
 					</tbody>
 				</table>
 			</div>
