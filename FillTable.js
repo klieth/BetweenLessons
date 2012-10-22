@@ -14,6 +14,7 @@ $(document).ready(function() {
 		newrow.append("<td>" + song.genre + "</td>");
 		newrow.append("<td>" + song.startDate + "</td>");
 		newrow.append("<td>" + song.comments + "</td>");
+		newrow.append("<td><a href=\"\">delete</a></td>");
 		$("#SongInfo").append(newrow);
 		
 		//$("#SongInfo").append("<tr><td>" + song.title + "</td>");
