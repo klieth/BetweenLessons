@@ -6,6 +6,7 @@ $(document).ready(function() {
 	jQuery.each(Song.all, function(index, song) {
 		var newrow = $("<tr></tr>");
 		str = evenodd ? "even" : "odd";
+		evenodd = !evenodd;
 		newrow.addClass(str);
 		newrow.append("<td>" + song.title + "</td>");
 		newrow.append("<td>" + song.composer + "</td>");
