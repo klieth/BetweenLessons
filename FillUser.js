@@ -1,11 +1,11 @@
 
 $(document).ready(function() {
 	var curUser = User.all['jbrown'];
-	$("#user").setText("Hello, " + curUser.name);
-	$("#userName").setText("User Name: " + curUser.userName);
-	$("#user").setText("About me: " + curUser.about);
-	$("#user").setText("Account created: " + curUser.created);
-	$("#user").setText("Age: " + curUser.age);
-	$("#location").setText("Location: " + curUser.location);
+	$("#user").text("Hello, " + curUser.name);
+	$("#userName").text("User Name: " + curUser.userName);
+	$("#user").text("About me: " + curUser.about);
+	$("#user").text("Account created: " + curUser.created);
+	$("#user").text("Age: " + curUser.age);
+	$("#location").text("Location: " + curUser.location);
 
 });
