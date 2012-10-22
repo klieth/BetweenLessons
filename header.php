@@ -16,10 +16,9 @@
 			<li>Targets</li>
 		</ul>
 		<ul id="m4" class="menu">
-			<li>Manage repertoire</li>
-			<li>Current work</li>
-			<li>Mastered repertoire</li>
-			<li>Want to learn</li>
+			<li><a href="current.php">Current work</a></li>
+			<li><a href="mastered.php">Mastered repertoire</a></li>
+			<li><a href="tolearn.php">Want to learn</a></li>
 		</ul>
 	</div>
 </div>

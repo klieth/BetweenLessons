@@ -5,14 +5,7 @@
 		<script type="text/javasctipt" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script type="text/javascript" src="Song.js"></script>
 
-<script type="text/javascript">
-// add jQuery here to fill in tbody
-// you should do it all inside the ready function, otherwise you'll have issues with the DOM loading.
-$(document).ready(function() {
-
-});
-
-</script>
+		<script type="text/javascript" src="FillTable.js"></script>
 
 	</head>
 	<body>
