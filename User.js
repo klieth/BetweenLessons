@@ -16,6 +16,7 @@ var User = function(userName, name, about, date, age, location){
 	
 }
 
+User.all = {};
 User.all['jbrown'] = new User('jbrown', 'John Brown', '', '2012-10-22', 23, 'Chapel Hill');
 
 var addCurrentWork = function(song){
