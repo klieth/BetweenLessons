@@ -18,6 +18,6 @@ $(document).ready(function() {
 		//$("#SongInfo").append("<td>" + song.genre + "</td>");
 		//$("#SongInfo").append("<td>" + song.startDate + "</td>");
 		//$("#SongInfo").append("<td>" + song.comments + "</td></tr>");
-	}
+	});
 
 });
