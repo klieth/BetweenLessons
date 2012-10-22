@@ -9,7 +9,7 @@
 		<ul id="m2" class="menu">
 			<li>Manage accout</li>
 			<li>Preferences</li>
-			<li>Profile</li>
+			<li><a href="user.php">Profile</a></li>
 		</ul>
 		<ul id="m3" class="menu">
 			<li>Manage Targets</li>
