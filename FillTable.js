@@ -33,6 +33,7 @@ $(document).ready(function() {
 		newrow.append("<td>" + $("#comments").val() + "</td>");
 		newrow.append("<td class=\"button deletebutton\">delete</td>");
 		$("#SongInfo").append(newrow);
+		$("#addSong")[0].reset();
 		resetColors();
 	});
 
