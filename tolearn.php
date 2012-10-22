@@ -1,4 +1,4 @@
-<?php include 'header.php' ?>
+<?php include 'songHeader.php' ?>
 <div id="content">
 	<h2 id="contentTitle">Want to learn</h2>
 	<table>
