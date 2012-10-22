@@ -16,6 +16,7 @@
 				<tbody id="SongInfo">
 				</tbody>
 			</table>
+			<?php include "addsong.php"?>
 		</div>
 
 <?php include "footer.php" ?>
