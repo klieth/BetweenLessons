@@ -16,7 +16,7 @@
 	<h1 id="title">Between Lessons</h1>
 	<div id="menuContainer">
 		<ul id="m1" class="menu">
-			<li>Home</li>
+			<li><a href="index.php">Home</a></li>
 			<li>About</li>
 		</ul>
 		<ul id="m2" class="menu">
