@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Assignment 5</title>
+		<style>
+			td, th {
+				border: thin solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>RESTful Interface</h1>
+			</header>
+			
+			<table>
+				<thead>
+					<tr>
+						<th>HTTP Method</th>
+						<th>URL form</th>
+						<th>Parameters</th>
+						<th>Result Structure</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td>GET</td>
+						<td>/user.php</td>
+						<td>None</td>
+						<td>Array of IDs</td>
+						<td>Returns all users in the system.</td>
+					</tr>
+					
+					<tr>
+						<td>GET</td>
+						<td>/user.php/uid</td>
+						<td>None</td>
+						<td>{uid: <em>Integer</em>,<br>
+							firstName: <em>String</em>, <br>
+							IName: <em>String</em>,<br>
+							class: <em>Array of Integers</em><br>
+						}
+						</td>
+						<td>Returns all relevant information about a given user.</td>
+					</tr>
+					
+					<tr>
+						<td>POST</td>
+						<td>/user.php/uid</td>
+						<td>delete: [any value]</td>
+						<td>Status of delete</td>
+						<td>Deletes the selected user</td>
+					</tr>
+					
+					<tr>
+						<td>GET</td>
+						<td>/song.php</td>
+						<td>uid: id of logged in user</td>
+						<td>Array of IDs</td>
+						<td>Returns all songs related to the logged in user.</td>
+					</tr>
+					
+					<tr>
+						<td>GET</td>
+						<td>/song.php/sid</td>
+						<td>status: indicates whether the song is marked "to learn", "mastered", or "current work".</td>
+						<td>{sid: <em>Integer</em>,<br>
+							title: <em>String</em>,<br>
+							composer: <em>String</em>,<br>
+							tempo: <em>Integer</em>,<br>
+							genre: <em>String</em>,<br>
+							date: <em>Date</em>,<br>
+							comments: <em>String</em>,<br>
+						}
+						</td>
+						<td>Returns all relevant information about selected song.</td>
+					</tr>
+					
+					<tr>
+						<td>POST</td>
+						<td>/song.php/sid</td>
+						<td>[keyname]: the new value for the specified key<br><br>
+							add: [any value]
+						</td>
+						<td>None</td>
+						<td>Sets [keyname] to the given value.
+							This will typically only be done to
+							change to comment if not adding a new
+							song, but it is left open to fix spelling
+							errors, etc. in other columns <br><br>
+							If adding, all keys should be specified.</td>
+						
+					</tr>
+					<tr>
+						<td>POST</td>
+						<td>/song.php/sid</td>
+						<td>delete: [any value]</td>
+						<td>Status of delete</td>
+						<td>Removes a song from a user's list</td>
+					</tr>
+					
+					<tr>
+						<td>GET</td>
+						<td>/tasks.php</td>
+						<td>uid: id of logged in user</td>
+						<td>Array of IDs</td>
+						<td>Returns al task related information about songs to the user</td>
+					</tr>
+					
+					<tr>
+						<td>POST</td>
+						<td>/tasks.php/tid</td>
+						<td>[keyname]: the new value for the specified key. <br><br>
+							add: [any value]
+						</td>
+						<td>None</td>
+						<td>Sets [keyname] to the given value. This
+							will be done when the user wisheds to 
+							change the status of a song they are learning.<br><br>
+							If adding, all keys should be specified</td>
+					</tr>
+					
+					<tr>
+						<td>POST</td>
+						<td>/tasks.php/tid</td>
+						<td>delete: [any value]</td>
+						<td>Status of delete</td>
+						<td>Removes a task from a user's list.</td>
+					</tr>
+				</tbody>	
+			</table>
+			
+			<h3>User</h3>
+			
+			A User is encoded in JSON as follows:
+			<blockquote>
+				id: INT, primary key<br>
+				first: CHAR(25), first name<br>
+				last: CHAR(25), last name
+			</blockquote>
+			
+			<h3>Song</h3>
+			
+			A Song is encoded in JSON as follows:
+			<blockquote>
+				sid: INT, primary key<br>
+				uid: INT, foreign key User(id)<br>
+				title: CHAR(25), name of song<br>
+				composer: CHAR(25)<br>
+				tempo: INT<br>
+				genre: CHAR(25)<br>
+				startdate: CHAR(3)<br>
+				comments: CHAR(25)
+			</blockquote>
+			
+			<h3>Tasks</h3>
+			
+			A Task is encoded in JSON as follows:
+			<blockquote>
+				tid: IT, primary key<br>
+				uid: INT, foreign key User(id)<br>
+				sdate: CHAR(25)<br>
+				fdate: CHAR(25)<br>
+				status: CHAR(25)<br>
+			</blockquote>
+			
+		</div>
+	</body>
+</html>
