@@ -63,6 +63,8 @@ class SongRest extends REST {
 				$this->$func($_GET['uid']);
 			else if (!is_null($data) && !is_null($sid))
 				$this->$func($sid,$data);
+			else if (is_null($sid) && !is_null($data))
+				$this->$func($data);
 			else {
 				//$this->response('Wrong parameters',500);
 				header("HTTP/1.1 500 Internal Server Error");
@@ -87,7 +89,7 @@ class SongRest extends REST {
 	private function update_song($sid,$data) {
 	}
 
-	private function add_song($sid,$data) {
+	private function add_song($data) {
 		if ($this->get_request_method() != "POST") {
 			$this->response('',406);
 		}
