@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
+
 class REST {
 	public $_allow = array();
 	public $_content_type = "application/json";
