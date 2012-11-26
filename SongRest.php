@@ -60,7 +60,9 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "GET") {
 			$this->response('',406);
 		}
-		$this->response('{msg:"info on song ' . $sid . '"}',200);
+		$res = mysqli_query($this->db, "SELECT * FROM Song WHERE sid=" . $sid);
+		$data = mysqli_fetch_assoc($res);
+		$this->response(json_encode($data),200);
 	}
 
 	private function delete_song($sid) {
@@ -73,7 +75,10 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "POST") {
 			$this->response('',406);
 		}
-		mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (1,'Test song','Test composer',60,'rock','2012-11-1','No comment')");
+		if (!isset($data['uid']) || !isset($data['title']) || !isset($data['composer']) || !isset($data['genre']) || !isset($data['bpm']) || !isset($data['date']) || !isset($data['comment'])) {
+			$this->response('All columns must be set.',400);
+		}
+		mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $data['uid'] . ",'" . $data['title'] . "','" . $data['composer'] . "'," . $data['genre'] . ",'" . $data['bpm'] . ",'" . $data['date'] . "','" . $data['comment'] . "')");
 		$this->response('Song added',200);
 	}
 
