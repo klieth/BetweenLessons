@@ -26,54 +26,34 @@ class SongRest extends REST {
 	}
 
 	public function process() {
-		$func = NULL;
-		$sid = NULL;
-		$data = NULL;
 		if ($this->get_request_method() == "GET") {
 			if (!isset($this->_request['uid'])) {
 				$this->response('User ID must be specified',400);
 			}
 			if (isset($_SERVER['PATH_INFO'])) {
 				$sid = strtok($_SERVER['PATH_INFO'], '/');
-				$func = 'get_song_info';
+				$this->get_song_info($sid);
 			} else {
-				$func = 'get_songs';
+				$this->get_songs();
 			}
 		} else if ($this->get_request_method() == "DELETE") {
-			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/'))) {
-				$func = 'delete_song';
+			if (isset($_SERVER['PATH_INFO'])) {
+				delete_song(strtok($_SERVER['PATH_INFO'], '/'));
 			}
 		} else if ($this->get_request_method() == "POST") {
-			if (isset($_SERVER['PATH_INFO'])) {
-				$sid = strtok($_SERVER['PATH_INFO'], '/');
-				$func = 'update_song';
-			} else {
-				$func = 'add_song';
-			}
-			if (!isset($_POST['data'])) {
+			if (!isset($this->_request['data'])) {
 				$this->response('Must specify data to update/add',400);
 			} else {
 				$data = json_decode($_POST['data']);
 			}
-		}
-		if ((int)method_exists($this,$func) > 0) {
-			if (!is_null($sid) && is_null($data))
-				$this->$func($sid);
-			else if (isset($_GET['uid']))
-				$this->$func($_GET['uid']);
-			else if (!is_null($data) && !is_null($sid))
-				$this->$func($sid,$data);
-			else if (is_null($sid) && !is_null($data))
-				$this->$func($data);
-			else {
-				//$this->response('Wrong parameters',500);
-				header("HTTP/1.1 500 Internal Server Error");
-				print("Wrong parameters");
-				exit();
+			if (isset($_SERVER['PATH_INFO'])) {
+				$sid = strtok($_SERVER['PATH_INFO'], '/');
+				update_song($sid,$data);
+			} else {
+				add_song($data);
 			}
-		} else {
-			$this->response('',404);
 		}
+		$this->response('',404);
 	}
 
 	private function get_song_info($sid) {
