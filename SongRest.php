@@ -36,6 +36,7 @@ class SongRest extends REST {
 				$func = 'get_song_info';
 			} else {
 				$func = 'get_songs';
+				$sid = NULL;
 			}
 		} else if ($this->get_request_method() == "DELETE") {
 			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/')) {
