@@ -44,7 +44,7 @@ class SongRest extends REST {
 			if (count($this->_request) == 0) {
 				$this->response('Must specify data to update/add',400);
 			} else {
-				$data = $this->_request);
+				$data = $this->_request;
 			}
 			if (isset($_SERVER['PATH_INFO'])) {
 				$sid = strtok($_SERVER['PATH_INFO'], '/');
