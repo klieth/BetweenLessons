@@ -112,7 +112,7 @@ class SongRest extends REST {
 			$this->response('All columns must be set.',400);
 		}
 		$res = mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $_POST['uid'] . ",'" . $_POST['title'] . "','" . $data['composer'] . "'," . $data['tempo'] . ",'" . $data['genre'] . "','" . $data['date'] . "','" . $data['comments'] . "')");
-		$this->response('Song added ' . $res,200);
+		$this->response('Song added ' . mysqli_insert_id($this->db),200);
 	}
 
 	private function get_songs($uid) {
