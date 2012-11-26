@@ -44,7 +44,7 @@ class SongRest extends REST {
 			if (!isset($this->_request['data'])) {
 				$this->response('Must specify data to update/add',400);
 			} else {
-				$data = json_decode($_POST['data']);
+				$data = json_decode($this->_request['data']);
 			}
 			if (isset($_SERVER['PATH_INFO'])) {
 				$sid = strtok($_SERVER['PATH_INFO'], '/');
@@ -75,10 +75,10 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "POST") {
 			$this->response('',406);
 		}
-		if (!isset($data['uid']) || !isset($data['title']) || !isset($data['composer']) || !isset($data['genre']) || !isset($data['bpm']) || !isset($data['date']) || !isset($data['comment'])) {
+		if (!isset($data['uid']) || !isset($data['title']) || !isset($data['composer']) || !isset($data['genre']) || !isset($data['tempo']) || !isset($data['date']) || !isset($data['comment'])) {
 			$this->response('All columns must be set.',400);
 		}
-		mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $data['uid'] . ",'" . $data['title'] . "','" . $data['composer'] . "'," . $data['genre'] . ",'" . $data['bpm'] . ",'" . $data['date'] . "','" . $data['comment'] . "')");
+		mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $data['uid'] . ",'" . $data['title'] . "','" . $data['composer'] . "'," . $data['genre'] . ",'" . $data['tempo'] . ",'" . $data['date'] . "','" . $data['comment'] . "')");
 		$this->response('Song added',200);
 	}
 
@@ -87,7 +87,10 @@ class SongRest extends REST {
 			$this->response('',406);
 		}
 		$res = mysqli_query($this->db, "SELECT * FROM Song WHERE uid=" . $uid);
-		$data = mysqli_fetch_assoc($res);
+		$data = array();
+		while (($row = mysqli_fetch_assoc($res)) != null) {
+			array_push($data, $row);
+		}
 		$this->response(json_encode($data),200);
 	}
 }
