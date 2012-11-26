@@ -85,7 +85,7 @@ class SongRest extends REST {
 		if (!isset($data['uid']) || !isset($data['title']) || !isset($data['composer']) || !isset($data['genre']) || !isset($data['tempo']) || !isset($data['date']) || !isset($data['comments'])) {
 			$this->response('All columns must be set.',400);
 		}
-		$res = mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $data['uid'] . ",'" . $data['title'] . "','" . $data['composer'] . "'," . $data['tempo'] . ",'" . $data['genre'] . ",'" . $data['date'] . "','" . $data['comments'] . "')");
+		$res = mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $_POST['uid'] . ",'" . $_POST['title'] . "','" . $data['composer'] . "'," . $data['tempo'] . ",'" . $data['genre'] . "','" . $data['date'] . "','" . $data['comments'] . "')");
 		$this->response('Song added ' . $res,200);
 	}
 
