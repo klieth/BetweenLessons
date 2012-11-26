@@ -13,7 +13,7 @@ class SongRest extends REST {
 
 	public function __construct() {
 		parent::__construct();
-		$this->dbConnect();
+		//$this->dbConnect();
 	}
 
 	private function dbConnect() {
