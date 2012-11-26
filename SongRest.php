@@ -39,7 +39,7 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "GET") {
 			$this->response('',406);
 		}
-		$this->response('{msg:"'. substr($_SERVER['PATH_INFO'],1) .'",uid:"'.$uid.'"}',200);
+		$this->response('{msg:"'. strtok($_SERVER['PATH_INFO'],'/') .'",uid:"'.$uid.'"}',200);
 	}
 }
 
