@@ -72,6 +72,8 @@ class SongRest extends REST {
 	}
 
 	private function delete_song($sid) {
+		$res = mysqli_query($this->db, "DELETE FROM Song WHERE sid=" . $sid);
+		$this->response("Deleted " . $res,200);
 	}
 
 	private function update_song($sid,$data) {
