@@ -36,10 +36,16 @@ class SongRest extends REST {
 			} else {
 				$this->get_songs(1);  // Hard coded to user 1, but logged in user should be stored in a cookie
 			}
-		} else if ($this->get_request_method() == "DELETE") {
-			if (isset($_SERVER['PATH_INFO'])) {
-				$this->delete_song(strtok($_SERVER['PATH_INFO'], '/'));
+		} //else if ($this->get_request_method() == "DELETE") {
+		//	if (isset($_SERVER['PATH_INFO'])) {
+		//		$this->delete_song(strtok($_SERVER['PATH_INFO'], '/'));
+		//	}
+		else if ($this->get_request_method() == "POST" && isset($_POST['delete'])) {
+			if (!isset($_SERVER['PATH_INFO'])) {
+				$this->response('sid must be set',400);
 			}
+			$sid = strtok($_SERVER['PATH_INFO'], '/');
+			$this->delete_song($sid);
 		} else if ($this->get_request_method() == "POST") {
 			if (count($this->_request) == 0) {
 				$this->response('Must specify data to update/add',400);
