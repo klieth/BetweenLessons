@@ -41,10 +41,10 @@ class SongRest extends REST {
 				$this->delete_song(strtok($_SERVER['PATH_INFO'], '/'));
 			}
 		} else if ($this->get_request_method() == "POST") {
-			if (!isset($this->_request['data'])) {
+			if (count($this->_request) == 0) {
 				$this->response('Must specify data to update/add',400);
 			} else {
-				$data = json_decode($this->_request['data']);
+				$data = $this->_request);
 			}
 			if (isset($_SERVER['PATH_INFO'])) {
 				$sid = strtok($_SERVER['PATH_INFO'], '/');
