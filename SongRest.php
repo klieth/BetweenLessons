@@ -22,24 +22,72 @@ class SongRest extends REST {
 	}
 
 	public function process() {
-		$func = 'get_songs';
+		$func = NULL;
+		$sid = NULL;
+		$data = NULL;
 		// ADD OTHER FUNCTIONS
 		// depends on parameters passed in url and request method
-		//if (!is_null(substr($_SERVER['PATH_INFO'], 1)) {
-		//	$func = 'get_songs';
-		//}
+		if ($this->get_request_method() == "GET") {
+			if (!isset($_GET['uid'])) {
+				$this->response('User ID must be specified',400);
+			}
+			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/')) {
+				$func = 'get_song_info';
+			} else {
+				$func = 'get_songs';
+			}
+		} else if ($this->get_request_method() == "DELETE") {
+			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/')) {
+				$func = 'delete_song';
+			}
+		} else if ($this->get_request_method() == "POST") {
+			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/')) {
+				$func = 'update_song';
+			}
+			if (isset($_POST['add'])) {
+				$func = 'add_song';
+			}
+			if (!isset($_POST['data'])) {
+				$this->response('Must specify data to change',400);
+			} else {
+				$data = json_decode($_POST['data']);
+			}
+		}
 		if ((int)method_exists($this,$func) > 0) {
-			$this->$func($_GET['uid']);						// FOR LOGGED IN ID
+			if (!is_null($sid) && is_null($data))
+				$this->$func($sid);
+			else if (!is_null($_GET['uid']))
+				$this->$func($_GET['uid']);
+			else if (!is_null($data) && !is_null($sid))
+				$this->$func($sid,$data);
+			else
+				$this->response('Wrong parameters',500);
 		} else {
 			$this->response('',404);
 		}
+	}
+
+	private function get_song_info($sid) {
+		if ($this->get_request_method() != "GET") {
+			$this->response('',406);
+		}
+		$this->response('{msg:"info on song ' . $sid . '"}',200);
+	}
+
+	private function delete_song($sid) {
+	}
+
+	private function update_song($sid,$data) {
+	}
+
+	private function add_song($sid,$data) {
 	}
 
 	private function get_songs($uid) {
 		if ($this->get_request_method() != "GET") {
 			$this->response('',406);
 		}
-		$this->response('{msg:"'. strtok($_SERVER['PATH_INFO'],'/') .'",uid:"'.$uid.'"}',200);
+		$this->response('{msg:"Songs obtained"}',200);
 	}
 }
 
