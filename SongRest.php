@@ -7,21 +7,22 @@ require_once("restinclude/Rest.php");
 class SongRest extends REST {
 	public $data = "";
 
-	const DB_SERVER = "";
-	const DB_USER = "";
-	const DB_PASSWORD = "";
-	const DB = "";
+	const DB_SERVER = "classroom.cs.unc.edu";
+	const DB_USER = "klieth";
+	const DB_PASSWORD = "NMHVWQTxeP6pbBmR";
+	const DB = "comp42620db";
 
 	private $db = NULL;
 
 	public function __construct() {
 		parent::__construct();
-		//$this->dbConnect();
+		$this->dbConnect();
 	}
 
 	private function dbConnect() {
-		$this->db = mysql_connect(self::DB_SERVER,self::DB_USER,self::DB_PASSWORD);
-		if ($this->db) mysql_select_db(self::DB,$this->db);
+		$this->db = mysqli_connect(self::DB_SERVER,self::DB_USER,self::DB_PASSWORD,self::DB);
+		if (mysqli_connect_errno($this->db))
+			$this->response('Database error: ' . mysqli_connect_error(),500);
 	}
 
 	public function process() {
