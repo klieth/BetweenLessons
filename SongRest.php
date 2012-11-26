@@ -32,11 +32,11 @@ class SongRest extends REST {
 			if (!isset($this->_request['uid'])) {
 				$this->response('User ID must be specified',400);
 			}
-			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/'))) {
+			if (isset($_SERVER['PATH_INFO'])) {
+				$sid = strtok($_SERVER['PATH_INFO'], '/');
 				$func = 'get_song_info';
 			} else {
 				$func = 'get_songs';
-				$sid = NULL;
 			}
 		} else if ($this->get_request_method() == "DELETE") {
 			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/'))) {
