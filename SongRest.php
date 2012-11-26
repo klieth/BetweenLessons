@@ -36,7 +36,7 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "GET") {
 			$this->response('',406);
 		}
-		$this->response('{msg:"'.$_REQUEST['rquest'].'"}',200);
+		$this->response('{msg:"'. $_SERVER['PATH_INFO'] .'"}',200);
 	}
 }
 
