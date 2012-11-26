@@ -75,6 +75,13 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "POST") {
 			$this->response('',406);
 		}
+		//remove this
+		$data['composer'] = 'test composer';
+		$data['genre'] = 'blues';
+		$data['tempo'] = 100;
+		$data['date'] = '2011-1-1';
+		$data['comments'] = 'none';
+
 		if (!isset($data['uid']) || !isset($data['title']) || !isset($data['composer']) || !isset($data['genre']) || !isset($data['tempo']) || !isset($data['date']) || !isset($data['comments'])) {
 			$this->response('All columns must be set.',400);
 		}
