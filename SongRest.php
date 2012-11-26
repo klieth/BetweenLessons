@@ -88,6 +88,11 @@ class SongRest extends REST {
 	}
 
 	private function add_song($sid,$data) {
+		if ($this->get_request_method() != "POST") {
+			$this->response('',406);
+		}
+		mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (1,'Test song','Test composer',60,'rock','2012-11-1','No comment')");
+		$this->response('Song added',200);
 	}
 
 	private function get_songs($uid) {
