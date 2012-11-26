@@ -32,7 +32,7 @@ $(document).ready(function() {
 		newrow.append("<td>" + $("#date").val() + "</td>");
 		newrow.append("<td>" + $("#comments").val() + "</td>");
 		newrow.append("<td class=\"button deletebutton\">delete</td>");
-		newrow.children(".deletebutton").click(function() {
+		newro.children(".deletebutton").click(function() {
 			$(this).parent().remove();
 			resetColors();
 		});
