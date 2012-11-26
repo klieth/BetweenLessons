@@ -69,6 +69,14 @@ class SongRest extends REST {
 	}
 
 	private function update_song($sid,$data) {
+		if ($this->get_request_method() != "POST") {
+			$this->response('',406);
+		}
+		foreach ($data as $k => $v) {
+			if ($k == "uid" || $k == "title" || $k == "comment") {
+				mysqli_query($this->db, "UPDATE Song SET " . $k . "=" . $v . " WHERE sid=" . $sid);
+			}
+		}
 	}
 
 	private function add_song($data) {
@@ -93,7 +101,7 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "GET") {
 			$this->response('',406);
 		}
-		$res = mysqli_query($this->db, "SELECT * FROM Song WHERE uid=" . $uid);
+		$res = mysqli_query($this->db, "SELECT sid FROM Song WHERE uid=" . $uid);
 		$data = array();
 		while (($row = mysqli_fetch_assoc($res)) != null) {
 			array_push($data, $row);
