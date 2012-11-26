@@ -77,6 +77,7 @@ class SongRest extends REST {
 				mysqli_query($this->db, "UPDATE Song SET " . $k . "=" . $v . " WHERE sid=" . $sid);
 			}
 		}
+		$this->response('Song updated',200);
 	}
 
 	private function add_song($data) {
