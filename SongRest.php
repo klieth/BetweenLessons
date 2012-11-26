@@ -29,21 +29,21 @@ class SongRest extends REST {
 		$sid = NULL;
 		$data = NULL;
 		if ($this->get_request_method() == "GET") {
-			if (!isset($_GET['uid'])) {
+			if (!isset($this->_request['uid'])) {
 				$this->response('User ID must be specified',400);
 			}
-			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/')) {
+			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/'))) {
 				$func = 'get_song_info';
 			} else {
 				$func = 'get_songs';
 				$sid = NULL;
 			}
 		} else if ($this->get_request_method() == "DELETE") {
-			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/')) {
+			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/'))) {
 				$func = 'delete_song';
 			}
 		} else if ($this->get_request_method() == "POST") {
-			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/')) {
+			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/'))) {
 				$func = 'update_song';
 			}
 			if (isset($_POST['add'])) {
