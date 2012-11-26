@@ -44,14 +44,14 @@ class SongRest extends REST {
 				$func = 'delete_song';
 			}
 		} else if ($this->get_request_method() == "POST") {
-			if (!is_null($sid = strtok($_SERVER['PATH_INFO'], '/'))) {
+			if (isset($_SERVER['PATH_INFO'])) {
+				$sid = strtok($_SERVER['PATH_INFO'], '/');
 				$func = 'update_song';
-			}
-			if (isset($_POST['add'])) {
+			} else {
 				$func = 'add_song';
 			}
 			if (!isset($_POST['data'])) {
-				$this->response('Must specify data to change',400);
+				$this->response('Must specify data to update/add',400);
 			} else {
 				$data = json_decode($_POST['data']);
 			}
