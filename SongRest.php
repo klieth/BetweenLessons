@@ -59,7 +59,7 @@ class SongRest extends REST {
 		if ((int)method_exists($this,$func) > 0) {
 			if (!is_null($sid) && is_null($data))
 				$this->$func($sid);
-			else if (!is_null($_GET['uid']))
+			else if (isset($_GET['uid']))
 				$this->$func($_GET['uid']);
 			else if (!is_null($data) && !is_null($sid))
 				$this->$func($sid,$data);
