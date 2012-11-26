@@ -38,7 +38,7 @@ class SongRest extends REST {
 			}
 		} else if ($this->get_request_method() == "DELETE") {
 			if (isset($_SERVER['PATH_INFO'])) {
-				delete_song(strtok($_SERVER['PATH_INFO'], '/'));
+				$this->delete_song(strtok($_SERVER['PATH_INFO'], '/'));
 			}
 		} else if ($this->get_request_method() == "POST") {
 			if (!isset($this->_request['data'])) {
@@ -48,9 +48,9 @@ class SongRest extends REST {
 			}
 			if (isset($_SERVER['PATH_INFO'])) {
 				$sid = strtok($_SERVER['PATH_INFO'], '/');
-				update_song($sid,$data);
+				$this->update_song($sid,$data);
 			} else {
-				add_song($data);
+				$this->add_song($data);
 			}
 		}
 		$this->response('',404);
