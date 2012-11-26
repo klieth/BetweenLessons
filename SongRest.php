@@ -80,14 +80,21 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "POST") {
 			$this->response('',406);
 		}
+		$changed = false;
 		foreach ($data as $k => $v) {
 			if ($k == "uid" || $k == "tempo") {
 				mysqli_query($this->db, "UPDATE Song SET " . $k . "=" . $v . " WHERE sid=" . $sid);
-			} else if ($k == "title" || $k == "composer" || $k == "comment" || $k == "genre") {
+				$changed = true;
+			} else if ($k == "title" || $k == "composer" || $k == "comments" || $k == "genre") {
 				mysqli_query($this->db, "UPDATE Song SET " . $k . "='" . $v . "' WHERE sid=" . $sid);
+				$changed = true;
 			}
 		}
-		$this->response('Song updated',200);
+		if ($changed) {
+			$this->response('Song updated',200);
+		} else {
+			$this->response('No changes made',200);
+		}
 	}
 
 	private function add_song($data) {
