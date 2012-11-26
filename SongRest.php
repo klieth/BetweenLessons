@@ -25,18 +25,21 @@ class SongRest extends REST {
 		$func = 'get_songs';
 		// ADD OTHER FUNCTIONS
 		// depends on parameters passed in url and request method
+		//if (!is_null(substr($_SERVER['PATH_INFO'], 1)) {
+		//	$func = 'get_songs';
+		//}
 		if ((int)method_exists($this,$func) > 0) {
-			$this->$func();						// FOR LOGGED IN ID
+			$this->$func($_GET['uid']);						// FOR LOGGED IN ID
 		} else {
 			$this->response('',404);
 		}
 	}
 
-	private function get_songs() {
+	private function get_songs($uid) {
 		if ($this->get_request_method() != "GET") {
 			$this->response('',406);
 		}
-		$this->response('{msg:"'. $_SERVER['PATH_INFO'] .'"}',200);
+		$this->response('{msg:"'. substr($_SERVER['PATH_INFO'],1) .'",uid:"'.$uid.'"}',200);
 	}
 }
 
