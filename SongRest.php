@@ -73,8 +73,10 @@ class SongRest extends REST {
 			$this->response('',406);
 		}
 		foreach ($data as $k => $v) {
-			if ($k == "uid" || $k == "title" || $k == "comment") {
+			if ($k == "uid" || $k == "tempo") {
 				mysqli_query($this->db, "UPDATE Song SET " . $k . "=" . $v . " WHERE sid=" . $sid);
+			} else if ($k == "title" || $k == "composer" || $k == "comment" || $k == "genre") {
+				mysqli_query($this->db, "UPDATE Song SET " . $k . "='" . $v . "' WHERE sid=" . $sid);
 			}
 		}
 		$this->response('Song updated',200);
