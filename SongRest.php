@@ -34,7 +34,7 @@ class SongRest extends REST {
 				$sid = strtok($_SERVER['PATH_INFO'], '/');
 				$this->get_song_info($sid);
 			} else {
-				$this->get_songs();
+				$this->get_songs(1);  // Hard coded to user 1, but logged in user should be stored in a cookie
 			}
 		} else if ($this->get_request_method() == "DELETE") {
 			if (isset($_SERVER['PATH_INFO'])) {
@@ -86,7 +86,9 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "GET") {
 			$this->response('',406);
 		}
-		$this->response('{msg:"Songs obtained"}',200);
+		$res = mysqli_query($this->db, "SELECT * FROM Song WHERE uid=" . $uid);
+		$data = mysqli_fetch_assoc($res);
+		$this->response(json_encode($data),200);
 	}
 }
 
