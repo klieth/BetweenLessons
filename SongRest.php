@@ -1,5 +1,7 @@
 <?php
 require_once("restinclude/Rest.php");
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 
 class SongRest extends REST {
 	public $data = "";
@@ -25,8 +27,6 @@ class SongRest extends REST {
 		$func = NULL;
 		$sid = NULL;
 		$data = NULL;
-		// ADD OTHER FUNCTIONS
-		// depends on parameters passed in url and request method
 		if ($this->get_request_method() == "GET") {
 			if (!isset($_GET['uid'])) {
 				$this->response('User ID must be specified',400);
