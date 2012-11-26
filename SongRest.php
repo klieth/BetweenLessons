@@ -75,10 +75,10 @@ class SongRest extends REST {
 		if ($this->get_request_method() != "POST") {
 			$this->response('',406);
 		}
-		if (!isset($data['uid']) || !isset($data['title']) || !isset($data['composer']) || !isset($data['genre']) || !isset($data['tempo']) || !isset($data['date']) || !isset($data['comment'])) {
+		if (!isset($data['uid']) || !isset($data['title']) || !isset($data['composer']) || !isset($data['genre']) || !isset($data['tempo']) || !isset($data['date']) || !isset($data['comments'])) {
 			$this->response('All columns must be set.',400);
 		}
-		mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $data['uid'] . ",'" . $data['title'] . "','" . $data['composer'] . "'," . $data['genre'] . ",'" . $data['tempo'] . ",'" . $data['date'] . "','" . $data['comment'] . "')");
+		mysqli_query($this->db, "INSERT INTO Song (uid,title,composer,tempo,genre,date,comments) VALUES (" . $data['uid'] . ",'" . $data['title'] . "','" . $data['composer'] . "'," . $data['tempo'] . ",'" . $data['genre'] . ",'" . $data['date'] . "','" . $data['comments'] . "')");
 		$this->response('Song added',200);
 	}
 
