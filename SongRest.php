@@ -1,7 +1,8 @@
 <?php
-require_once("restinclude/Rest.php");
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
+
+require_once("restinclude/Rest.php");
 
 class SongRest extends REST {
 	public $data = "";
@@ -60,8 +61,12 @@ class SongRest extends REST {
 				$this->$func($_GET['uid']);
 			else if (!is_null($data) && !is_null($sid))
 				$this->$func($sid,$data);
-			else
-				$this->response('Wrong parameters',500);
+			else {
+				//$this->response('Wrong parameters',500);
+				header("HTTP/1.1 500 Internal Server Error");
+				print("Wrong parameters");
+				exit();
+			}
 		} else {
 			$this->response('',404);
 		}
