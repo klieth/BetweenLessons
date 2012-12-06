@@ -21,4 +21,4 @@ $(document).ready(function() {
 	var ajax_error_handler = function(jqXHR, textStatus, errorThrown) {
 		$('#error').html(jqXHR.responseText);
 	}
-}
+});
