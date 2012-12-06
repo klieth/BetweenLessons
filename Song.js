@@ -11,6 +11,10 @@ var Song = function (title, composer, tempo, genre, startDate, comments){
 	this.genre = genre;
 	this.startDate = startDate;
 	this.comments = comments;
+
+	this.display = function() {
+		$('#test').append($('<p>' + this.title + '</p>'));
+	}
 }
 
 Song.all = {};
