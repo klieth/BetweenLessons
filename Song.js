@@ -13,7 +13,14 @@ var Song = function (title, composer, tempo, genre, startDate, comments){
 	this.comments = comments;
 
 	this.display = function() {
-		$('#test').append($('<p>' + this.title + '</p>'));
+		var row = $('<tr></tr>');
+		row.append('<td>' + this.title + '</td>');
+		row.append('<td>' + this.composer + '</td>');
+		row.append('<td>' + this.tempo + '</td>');
+		row.append('<td>' + this.genre + '</td>');
+		row.append('<td>' + this.startDate + '</td>');
+		row.append('<td>' + this.comments + '</td>');
+		$('#SongInfo').append(row);
 	}
 }
 
