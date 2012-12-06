@@ -13,7 +13,7 @@ $(document).ready(function() {
 var fillInfo = function(value) {
 	$.ajax({
 		url: 'SongRest.php/' + value.sid,
-		data: {uid='1'}
+		data: {uid:'1'}
 	}).done(function(data) {
 		var s = new Song(data.title,data.composer,data.tempo,data.genre,data.date,data.comments);
 		s.display();
