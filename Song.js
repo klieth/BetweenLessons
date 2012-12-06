@@ -20,6 +20,7 @@ var Song = function (title, composer, tempo, genre, startDate, comments){
 		row.append('<td>' + this.genre + '</td>');
 		row.append('<td>' + this.startDate + '</td>');
 		row.append('<td>' + this.comments + '</td>');
+		row.append('<td class="button deletebutton">delete</td>');
 		$('#SongInfo').append(row);
 	}
 }
