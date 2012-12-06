@@ -15,6 +15,7 @@ $(document).ready(function() {
 	$.ajax(ajax_url, settings);
 
 	var ajax_success_handler = function(data, textStatus, jqXHR) {
+		console.log("success")
 		$('#test').html(jqXHR.responseText);
 	}
 
