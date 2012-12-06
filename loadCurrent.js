@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var ajax_url = 'song.php';
+	var ajax_url = 'SongRest.php';
 
 	var data_map = {
 		usr: '1'
