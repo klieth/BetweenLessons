@@ -16,7 +16,7 @@ var fillInfo = function(value) {
 		url: 'SongRest.php/' + value.sid,
 		data: {uid:'1'}
 	}).done(function(data) {
-		var s = new Song(data.title,data.composer,data.tempo,data.genre,data.date,data.comments);
+		var s = new Song(data.title,data.composer,data.tempo,data.genre,data.date,data.comments,data.sid);
 		s.display();
 	});
 }

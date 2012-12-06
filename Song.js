@@ -4,7 +4,8 @@
  * Models the songs that users will be practicing.
  */
 
-var Song = function (title, composer, tempo, genre, startDate, comments){
+var Song = function (title, composer, tempo, genre, startDate, comments,sid){
+	this.sid = sid;
 	this.title = title;
 	this.composer = composer;
 	this.tempo = tempo;
@@ -45,6 +46,16 @@ var Song = function (title, composer, tempo, genre, startDate, comments){
 			type: 'POST'
 		}).done(function() {
 			console.log("success");
+		});
+	}
+
+	this.removeFromDB = function() {
+		$.ajax({
+			url: 'SongRest.php/' + this.sid,
+			data: {delete: 'true'},
+			type: 'POST'
+		}).done(function(data) {
+			console.log("deleted");
 		});
 	}
 }
