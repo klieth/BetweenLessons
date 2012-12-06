@@ -2,7 +2,7 @@ $(document).ready(function() {
 	var ajax_url = 'SongRest.php';
 
 	var data_map = {
-		usr: '1'
+		uid: '1'
 	};
 
 	var settings = {
