@@ -1,4 +1,4 @@
-
+<?php session_start();?>
 <div id="header">
 	<h1 id="title">Between Lessons</h1>
 	<div id="menuContainer">
