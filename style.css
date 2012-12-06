@@ -84,6 +84,7 @@ td > a:hover {
 .button {
 	background-color: red;
 	border: 1px solid black;
+	text-align: center;
 }
 
 .button:hover {
