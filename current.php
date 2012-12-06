@@ -1,5 +1,5 @@
 <?php include 'songHeader.php' ?>
-	<script src="loadCurrent.js" type="text/javascript"></script>
+	<script src="current.js" type="text/javascript"></script>
 	<div id="content">
 		<h2 id="contentTitle">Current Work</h2>
 			<table>

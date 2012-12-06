@@ -23,6 +23,24 @@ var Song = function (title, composer, tempo, genre, startDate, comments){
 		row.append('<td class="button deletebutton">delete</td>');
 		$('#SongInfo').append(row);
 	}
+
+	this.addToDB = function() {
+		$.ajax({
+			url: 'SongRest.php',
+			data: {
+				uid: '1',
+				title: this.title,
+				composer: this.composer,
+				genre: this.genre,
+				tempo: this.tempo,
+				date: this.startDate,
+				comments: this.comments
+			},
+			type: 'POST'
+		}).done(function() {
+			console.log("success");
+		});
+	}
 }
 
 Song.all = {};
