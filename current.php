@@ -1,4 +1,5 @@
 <?php include 'songHeader.php' ?>
+	<script src="loadCurrent.js" type="text/javascript"></script>
 	<div id="content">
 		<h2 id="contentTitle">Current Work</h2>
 			<table>
@@ -16,6 +17,8 @@
 				<tbody id="SongInfo">
 				</tbody>
 			</table>
+			<div id="test"></div>
+			<div id="error"></div>
 			<?php include "addSong.php"?>
 		</div>
 
