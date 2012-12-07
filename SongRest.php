@@ -34,7 +34,7 @@ class SongRest extends REST {
 				$sid = strtok($_SERVER['PATH_INFO'], '/');
 				$this->get_song_info($sid);
 			} else {
-				$this->get_songs(1);  // Hard coded to user 1, but logged in user should be stored in a cookie
+				$this->get_songs(1);  // Hard coded to user 1, but logged in user should be stored in a cookie or session state
 			}
 		} //else if ($this->get_request_method() == "DELETE") {
 		//	if (isset($_SERVER['PATH_INFO'])) {

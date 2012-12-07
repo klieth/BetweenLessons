@@ -1,4 +1,5 @@
 <?php include 'songHeader.php' ?>
+<script src="userLogin.js" type="text/javascript"></script>
 <form id="userLogin" action="javascript:void(0)">
 <div id="content">
 	<h2 id="contentTitle">User login</h2>
